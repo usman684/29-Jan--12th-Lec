@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Promises JS</h1>
+
+    <script>
+        const weatherRes = new Promise((resolve,reject)=>{
+            if(4>3){
+            resolve({
+                city:"Lahore",
+                temp:"22",
+            });
+        } 
+            else{
+                reject({
+                    message:"Server is Down",
+                });
+            } 
+        });
+       
+        //Promise Handling Using then and catch
+        weatherRes.then((data)=>{
+            console.log("Then");
+            console.log(data);
+        }).catch((err)=>{
+            console.log("Catch")
+            console.log(err);
+        });
+
+
+        //API Calling
+        const weatherAPI = fetch("https://p2pclouds.up.railway.app/v1/learn/weather?city=lahore",);
+        console.log(weatherAPI);
+
+        weatherAPI.then((data)=>{
+            console.log(data);
+
+        }).catch((err)=>{
+            console.log(err);
+        });
+
+
+    </script>
+
+
+    <!--https://p2pclouds.up.railway.app/v1/learn/weather?city=<lahore-->
+</body>
+</html>
